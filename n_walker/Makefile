@@ -1,7 +1,7 @@
-OUT_FILE=fast_walker
+OUT_FILE=n_walker
 
 build:
-	@g++ -g  -fsanitize=address -Wall -fopenmp -o $(OUT_FILE) fast_walker.cpp
+	@g++ -g  -fsanitize=address -Wall -fopenmp -o $(OUT_FILE) n_walker.cpp
 
 run: build
 	@for number in 1 2 3; do \

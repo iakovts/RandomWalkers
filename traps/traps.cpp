@@ -33,7 +33,7 @@ template <class RNG>
 int walker(int dims, double c, int grid_size, RNG &gen);
 
 int main(int argc, char **argv) {
-  const int N = 100000, dims = 2, grid_size = 500;
+  const int N = 100000, dims = 2;
   int i = 0, nthreads;
   double c = 0.001;
   std::array<int, N> output;
@@ -64,7 +64,8 @@ int main(int argc, char **argv) {
     }
   }
   for (int x = 0; x < (int)output.size(); x++) {
-    Phi[x] = (double)output[x] / pow(grid_size, 2);
+    // Phi[x] = ((double)output[x] / pow(grid_size, 2)) * 100; // Percentage
+    Phi[x] = (double)output[x];
   }
   std::ostringstream filename;
   int ccc;
@@ -122,7 +123,6 @@ Vec<int> set_random(int dims, RNG &gen) {
   Vec<int> res(dims);
   for (int x = 0; x < dims; x++) {
     res[x] = distrib(gen);
-    // std::cout << res[x] << " ";
   }
   return res;
 };
